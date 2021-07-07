@@ -241,7 +241,7 @@ function askAngularDemo() {
 function prepareDemoAppsFromTemplates() {
     let templatesOrigin = inputParams.templates_branch ?
         "nativescript-app-templates/packages/template-blank" :
-        "tns-template-blank";
+        "@nativescript/template-blank";
     let templatesOriginName = inputParams.templates_branch ?
         "branch " + inputParams.templates_branch :
         "latest published template";
@@ -411,7 +411,7 @@ function adjustScripts() {
 
         if (fs.lstatSync(file).isFile()) {
             var contents = fs.readFileSync(file, 'utf8');
-            
+
             // Adds an 'import' and console.log() of the 'message' filed of 'nativescript-yourplugin' to the includes apps
             contents = file.includes(pathModule.join(demoTsFolder)) ? updateApp(contents, file, demoTsSearchTerm) : contents;
             contents = file.includes(pathModule.join(demoAngularFolder)) ? updateApp(contents, file, demoAngularSearchTerm) : contents;
@@ -542,8 +542,6 @@ function getPluginScripts() {
         key: preDefinedCleanScript.key,
         value: preDefinedCleanScript.value.replace(cleanAppsScriptPlaceholderStr, fullAppResetCommand)
     });
-
-    
 
     return scripts;
 }
